@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <link rel="stylesheet" href="./css/styles.css" />
+        <script src="./src/js/script.js" defer></script>
+        <title>Tic Tac Toe</title>
+    </head>
+    <body>
+        <!-- Page Wrapper -->
+        <div class="relative flex items-center justify-center h-screen">
+            <!-- Grid Wrapper -->
+            <div
+                id="board"
+                class="grid items-center justify-center grid-cols-3 group">
+                <div
+                    class="group-hover:cursor-pointer hover:bg-opacity-30 duration-300 bg-black bg-opacity-0 n-300 flex w-[100px] h-[100px] justify-center items-center border border-black border-t-0 border-l-0"
+                    data-cell="0"">
+                    <img
+                        class="hidden w-16 h-16"
+                        src="./src/assests/x-symbol-svgrepo-com.svg"
+                        alt="" />
+                    <img
+                        class="hidden w-16 h-16"
+                        src="./src/assests/circle-outline-shape-svgrepo-com.svg"
+                        alt="" />
+                </div>
+                <div
+                    class="group-hover:cursor-pointer hover:bg-opacity-30 duration-300 bg-black bg-opacity-0 flex items-center justify-center w-[100px] h-[100px] border border-black border-t-0"
+                    data-cell="1">
+                    <img
+                        class="hidden w-16 h-16"
+                        src="./src/assests/x-symbol-svgrepo-com.svg"
+                        alt="" />
+                    <img
+                        class="hidden w-16 h-16"
+                        src="./src/assests/circle-outline-shape-svgrepo-com.svg"
+                        alt="" />
+                </div>
+                <div
+                    class="group-hover:cursor-pointer hover:bg-opacity-30 duration-300 bg-black bg-opacity-0 flex items-center justify-center w-[100px] h-[100px] border border-black border-t-0 border-r-0"
+                    data-cell="2">
+                    <img
+                        class="hidden w-16 h-16"
+                        src="./src/assests/x-symbol-svgrepo-com.svg"
+                        alt="" />
+                    <img
+                        class="hidden w-16 h-16"
+                        src="./src/assests/circle-outline-shape-svgrepo-com.svg"
+                        alt="" />
+                </div>
+                <div
+                    class="group-hover:cursor-pointer hover:bg-opacity-30 duration-300 bg-black bg-opacity-0 flex items-center justify-center w-[100px] h-[100px] border border-black border-l-0"
+                    data-cell="3">
+                <img
+                        class="hidden w-16 h-16"
+                        src="./src/assests/x-symbol-svgrepo-com.svg"
+                        alt="" />
+                    <img
+                        class="hidden w-16 h-16"
+                        src="./src/assests/circle-outline-shape-svgrepo-com.svg"
+                        alt="" /></div>
+                <div
+                    class="group-hover:cursor-pointer hover:bg-opacity-30 duration-300 bg-black bg-opacity-0 flex items-center justify-center w-[100px] h-[100px] border border-black"
+                    data-cell="4">
+                <img
+                        class="hidden w-16 h-16"
+                        src="./src/assests/x-symbol-svgrepo-com.svg"
+                        alt="" />
+                    <img
+                        class="hidden w-16 h-16"
+                        src="./src/assests/circle-outline-shape-svgrepo-com.svg"
+                        alt="" /></div>
+                <div
+                    class="group-hover:cursor-pointer hover:bg-opacity-30 duration-300 bg-black bg-opacity-0 flex items-center justify-center w-[100px] h-[100px] border border-black border-r-0"
+                    data-cell="5">
+                <img
+                        class="hidden w-16 h-16"
+                        src="./src/assests/x-symbol-svgrepo-com.svg"
+                        alt="" />
+                    <img
+                        class="hidden w-16 h-16"
+                        src="./src/assests/circle-outline-shape-svgrepo-com.svg"
+                        alt="" /></div>
+                <div
+                    class="group-hover:cursor-pointer hover:bg-opacity-30 duration-300 bg-black bg-opacity-0 flex items-center justify-center w-[100px] h-[100px] border border-black border-b-0 border-l-0"
+                    data-cell="6">
+                <img
+                        class="hidden w-16 h-16"
+                        src="./src/assests/x-symbol-svgrepo-com.svg"
+                        alt="" />
+                    <img
+                        class="hidden w-16 h-16"
+                        src="./src/assests/circle-outline-shape-svgrepo-com.svg"
+                        alt="" /></div>
+                <div
+                    class="group-hover:cursor-pointer hover:bg-opacity-30 duration-300 bg-black bg-opacity-0 flex items-center justify-center w-[100px] h-[100px] border border-black border-b-0"
+                    data-cell="7">
+                <img
+                        class="hidden w-16 h-16"
+                        src="./src/assests/x-symbol-svgrepo-com.svg"
+                        alt="" />
+                    <img
+                        class="hidden w-16 h-16"
+                        src="./src/assests/circle-outline-shape-svgrepo-com.svg"
+                        alt="" /></div>
+                <div
+                    class="group-hover:cursor-pointer hover:bg-opacity-30 duration-300 bg-black bg-opacity-0 flex items-center justify-center w-[100px] h-[100px] border border-black border-b-0 border-r-0"
+                    data-cell="8">
+                <img
+                        class="hidden w-16 h-16"
+                        src="./src/assests/x-symbol-svgrepo-com.svg"
+                        alt="" />
+                    <img
+                        class="hidden w-16 h-16"
+                        src="./src/assests/circle-outline-shape-svgrepo-com.svg"
+                        alt="" /></div>
+            </div>
+            <div
+                id="starter"
+                class="fixed top-0 bottom-0 left-0 right-0 flex-col items-center justify-center hidden text-4xl bg-slate-500">
+                <div id="winningMsg" class="p-10 text-gray-200 uppercase">
+                    Winning Message Goes Here
+                </div>
+                <button
+                    id="restartBtn"
+                    class="px-4 py-6 font-bold text-gray-200 border-4 border-blue-600 rounded-xl">
+                    Restart
+                </button>
+            </div>
+        </div>
+    </body>
+</html>
