@@ -71,29 +71,17 @@ function resetGameState() {
 }
 
 function handleClick(e) {
-    // e.preventDefault();
-
     const cell = e.currentTarget;
 
     markBoard(cell);
 
     if (boardWinner()) {
-        return endGame();
-    } else if (isDraw()) {
-        return endGame();
+        endGame();
+    } else if (!isDraw()) {
+        endGame();
     } else {
         switchTurns();
     }
-
-    // if (boardWinner()) {
-    //     endGame();
-    // } else if (isDraw()) {
-    //     endGame();
-    // } else {
-    //     switchTurns();
-    // }
-
-    // endGame();
 }
 
 function markBoard(cell) {
@@ -112,14 +100,15 @@ function markBoard(cell) {
 }
 
 function boardWinner() {
-    const winner = WINNING_COMBINATIONS.some(combo => {
+    return WINNING_COMBINATIONS.some(combo => {
         return combo.every(index => {
             return GAMESTATE[index] === currentTurn;
         });
     });
+}
 
-    // console.log(winner);
-    return winner;
+function isDraw() {
+    return Object.values(GAMESTATE).some(val => val === null);
 }
 
 function switchTurns() {
@@ -132,7 +121,7 @@ function endGame() {
     setTimeout(() => {
         startingEle.classList.toggle('flex');
         startingEle.classList.toggle('hidden');
-    }, 1500);
+    }, 2000);
 }
 
 // function endGame(draw) {
@@ -145,8 +134,6 @@ function endGame() {
 //     }
 //     winningMessageElement.classList.add('show');
 // }
-
-function isDraw() {}
 
 // function setBoardHoverClass() {
 //     board.classList.remove(X_CLASS);
