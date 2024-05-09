@@ -19,11 +19,12 @@ const startingEle = document.getElementById('starter');
 const winningMessageEle = document.getElementById('winningMsg');
 const restartButton = document.getElementById('restartBtn');
 
-// const winningMessageTextElement = document.querySelector(
-//     '[data-winning-message-text]'
-// );
 let gameActive = false;
 let circleTurn;
+
+const board = document.getElementById('board');
+
+// console.log(board);
 
 const GAMESTATE = {
     0: null,
@@ -45,23 +46,43 @@ function startGame() {
     gameActive = true;
     currentTurn = X_CLASS;
     resetGameState();
-    resetGameBoard(cellEles);
+    resetGameBoard();
 
     startingEle.classList.toggle('flex');
     startingEle.classList.toggle('hidden');
-
-    // setBoardHoverClass();
-    // winningMessageEle.classList.remove('show');
 }
 
-function resetGameBoard(cells) {
-    cells.forEach(cell => {
-        cell.classList.remove(X_CLASS, CIRCLE_CLASS);
+function resetGameBoard() {
+    cellEles.forEach(cell => {
+        cell.classList.add('hover:cursor-pointer');
+        cell.classList.remove('clicked', 'cursor-red-circle');
+        toggleImgs(cell);
         cell.querySelectorAll('img').forEach(img =>
             img.classList.add('hidden')
         );
         cell.removeEventListener('click', handleClick);
         cell.addEventListener('click', handleClick, { once: true });
+    });
+}
+
+function toggleImgs(cell) {
+    cell.addEventListener('mouseenter', () => {
+        const xImage = cell.querySelector('img[class*="X"]');
+        const oImage = cell.querySelector('img[class*="O"]');
+
+        if (!cell.classList.contains('clicked')) {
+            currentTurn === CIRCLE_CLASS
+                ? oImage.classList.remove('hidden')
+                : xImage.classList.remove('hidden');
+        }
+    });
+
+    cell.addEventListener('mouseleave', () => {
+        if (!cell.classList.contains('clicked')) {
+            cell.querySelectorAll('img').forEach(img =>
+                img.classList.add('hidden')
+            );
+        }
     });
 }
 
@@ -90,10 +111,12 @@ function handleClick(e) {
 function markBoard(cell) {
     const cellNumber = cell.dataset.cell;
 
-    const xImage = cell.querySelector('img[src*="x-symbol-svgrepo-com.svg"]');
-    const oImage = cell.querySelector(
-        'img[src*="circle-outline-shape-svgrepo-com.svg"]'
-    );
+    cell.classList.add('clicked');
+    cell.classList.remove('hover:cursor-pointer');
+    cell.classList.add('hover:cursor-not-allowed');
+
+    const xImage = cell.querySelector('img[class*="X"]');
+    const oImage = cell.querySelector('img[class*="O"]');
 
     currentTurn === CIRCLE_CLASS
         ? oImage.classList.remove('hidden')
@@ -127,19 +150,7 @@ function endGame(draw) {
         startingEle.classList.toggle('hidden');
     }, 1500);
 
-    if (draw) {
-        winningMessageEle.innerText = 'Draw!';
-    } else {
-        winningMessageEle.innerText = ` ${currentTurn} Wins!`;
-    }
+    draw
+        ? (winningMessageEle.innerText = 'Draw!')
+        : (winningMessageEle.innerText = ` ${currentTurn} Wins!`);
 }
-
-// function setBoardHoverClass() {
-//     board.classList.remove(X_CLASS);
-//     board.classList.remove(CIRCLE_CLASS);
-//     if (circleTurn) {
-//         board.classList.add(CIRCLE_CLASS);
-//     } else {
-//         board.classList.add(X_CLASS);
-//     }
-// }
