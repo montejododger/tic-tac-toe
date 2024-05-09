@@ -22,7 +22,7 @@ const restartButton = document.getElementById('restartBtn');
 // const winningMessageTextElement = document.querySelector(
 //     '[data-winning-message-text]'
 // );
-
+let gameActive = false;
 let circleTurn;
 
 const GAMESTATE = {
@@ -42,6 +42,7 @@ startGame();
 restartButton.addEventListener('click', startGame);
 
 function startGame() {
+    gameActive = true;
     currentTurn = X_CLASS;
     resetGameState();
     resetGameBoard(cellEles);
@@ -71,6 +72,7 @@ function resetGameState() {
 }
 
 function handleClick(e) {
+    if (!gameActive) return;
     const cell = e.currentTarget;
 
     markBoard(cell);
@@ -78,7 +80,8 @@ function handleClick(e) {
     if (boardWinner()) {
         endGame();
     } else if (!isDraw()) {
-        endGame();
+        const drawFlag = true;
+        endGame(drawFlag);
     } else {
         switchTurns();
     }
@@ -117,23 +120,19 @@ function switchTurns() {
         : (currentTurn = X_CLASS);
 }
 
-function endGame() {
+function endGame(draw) {
+    gameActive = false;
     setTimeout(() => {
         startingEle.classList.toggle('flex');
         startingEle.classList.toggle('hidden');
-    }, 2000);
-}
+    }, 1500);
 
-// function endGame(draw) {
-//     if (draw) {
-//         winningMessageTextElement.innerText = 'Draw!';
-//     } else {
-//         winningMessageTextElement.innerText = `${
-//             circleTurn ? "O's" : "X's"
-//         } Wins!`;
-//     }
-//     winningMessageElement.classList.add('show');
-// }
+    if (draw) {
+        winningMessageEle.innerText = 'Draw!';
+    } else {
+        winningMessageEle.innerText = ` ${currentTurn} Wins!`;
+    }
+}
 
 // function setBoardHoverClass() {
 //     board.classList.remove(X_CLASS);
