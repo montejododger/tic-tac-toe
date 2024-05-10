@@ -55,7 +55,7 @@ function startGame() {
 function resetGameBoard() {
     cellEles.forEach(cell => {
         cell.classList.add('hover:cursor-pointer');
-        cell.classList.remove('clicked', 'cursor-red-circle');
+        cell.classList.remove('clicked', 'hover:cursor-not-allowed');
         toggleImgs(cell);
         cell.querySelectorAll('img').forEach(img =>
             img.classList.add('hidden')
