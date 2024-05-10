@@ -25,7 +25,6 @@ let circleTurn;
 
 const board = document.getElementById('board');
 
-
 const GAMESTATE = {
     0: null,
     1: null,
@@ -49,8 +48,14 @@ function startGame() {
     resetGameBoard();
 
     playersTurn.innerText = `${currentTurn}'s`;
-    startingEle.classList.toggle('flex');
-    startingEle.classList.toggle('hidden');
+    restartButton.addEventListener('click', () => {
+        startingEle.classList.remove('opacity-100');
+        startingEle.classList.add('opacity-0');
+        setTimeout(() => {
+            startingEle.classList.toggle('hidden');
+            startingEle.classList.toggle('flex');
+        }, 500);
+    });
 }
 
 function resetGameBoard() {
@@ -59,7 +64,7 @@ function resetGameBoard() {
         cell.classList.remove('clicked', 'hover:cursor-not-allowed');
         toggleImgs(cell);
         cell.querySelectorAll('img').forEach(img =>
-            img.classList.add('hidden')
+            img.classList.add('hidden'),
         );
         cell.removeEventListener('click', handleClick);
         cell.addEventListener('click', handleClick, { once: true });
@@ -81,7 +86,7 @@ function toggleImgs(cell) {
     cell.addEventListener('mouseleave', () => {
         if (!cell.classList.contains('clicked')) {
             cell.querySelectorAll('img').forEach(img =>
-                img.classList.add('hidden')
+                img.classList.add('hidden'),
             );
         }
     });
@@ -148,10 +153,16 @@ function switchTurns() {
 function endGame(draw) {
     const winningP = winningMessageEle.querySelector('p');
     gameActive = false;
+    startingEle.classList.add('opacity-100');
+    startingEle.classList.remove('opacity-0');
+
+    startingEle.classList.toggle('hidden');
+    startingEle.classList.toggle('flex');
+
     setTimeout(() => {
-        startingEle.classList.toggle('flex');
-        startingEle.classList.toggle('hidden');
-    }, 1500);
+        // startingEle.classList.toggle('hidden');
+        // startingEle.classList.toggle('flex');
+    }, 1000);
 
     draw
         ? (winningP.innerText = 'Draw!')
