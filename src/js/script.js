@@ -25,7 +25,6 @@ let circleTurn;
 
 const board = document.getElementById('board');
 
-// console.log(board);
 
 const GAMESTATE = {
     0: null,
@@ -147,6 +146,7 @@ function switchTurns() {
 }
 
 function endGame(draw) {
+    const winningP = winningMessageEle.querySelector('p');
     gameActive = false;
     setTimeout(() => {
         startingEle.classList.toggle('flex');
@@ -154,6 +154,6 @@ function endGame(draw) {
     }, 1500);
 
     draw
-        ? (winningMessageEle.innerText = 'Draw!')
-        : (winningMessageEle.innerText = ` ${currentTurn} Wins!`);
+        ? (winningP.innerText = 'Draw!')
+        : (winningP.innerText = ` ${currentTurn} Wins! \n Would you like to play again?`);
 }

@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .cell-container {
-    @apply flex items-center justify-center w-[100px] h-[100px];
+    @apply flex items-center justify-center w-[100px] h-[100px] hover:opacity-30 ;
 }

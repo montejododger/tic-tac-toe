@@ -16,7 +16,9 @@
             <div
                 class="m-8 p-4 text-4xl font-bold text-center tracking-wider border-b-2 border-red-200 flex flex-col">
                 <p class="py-2 tracking-wider">PLAYER</p>
-                <span id="turn" class="capitalize text-red-300 py-2"></span>
+                <span
+                    id="turn"
+                    class="text-6xl capitalize text-red-300 py-2"></span>
                 <p class="py-2">TURN</p>
             </div>
             <!-- Grid Wrapper -->
@@ -24,7 +26,7 @@
                 id="board"
                 class="grid items-center justify-center grid-cols-3">
                 <div
-                    class="duration-500 border border-t-0 border-l-0 border-black hover:cursor-pointer hover:opacity-60 cell-container"
+                    class="hover:cursor-pointer duration-500 border border-t-0 border-l-0 border-black cell-container"
                     data-cell="0">
                     <img
                         class="hidden w-16 h-16 X"
@@ -36,7 +38,7 @@
                         alt="" />
                 </div>
                 <div
-                    class="duration-500 border border-t-0 border-black hover:cursor-pointer hover:opacity-60 cell-container"
+                    class="hover:cursor-pointer duration-500 border border-t-0 border-black cell-container"
                     data-cell="1">
                     <img
                         class="hidden w-16 h-16 X"
@@ -48,7 +50,7 @@
                         alt="" />
                 </div>
                 <div
-                    class="duration-500 border border-t-0 border-r-0 border-black hover:cursor-pointer hover:opacity-60 cell-container"
+                    class="hover:cursor-pointer duration-500 border border-t-0 border-r-0 border-black cell-container"
                     data-cell="2">
                     <img
                         class="hidden w-16 h-16 X"
@@ -60,7 +62,7 @@
                         alt="" />
                 </div>
                 <div
-                    class="duration-500 border border-l-0 border-black hover:cursor-pointer hover:opacity-60 cell-container"
+                    class="hover:cursor-pointer duration-500 border border-l-0 border-black cell-container"
                     data-cell="3">
                     <img
                         class="hidden w-16 h-16 X"
@@ -72,7 +74,7 @@
                         alt="" />
                 </div>
                 <div
-                    class="duration-300 bg-black bg-opacity-0 border border-black hover:cursor-pointer curso hover:opacity-60 cell-container"
+                    class="hover:cursor-pointer duration-300 bg-black bg-opacity-0 border border-black cell-container"
                     data-cell="4">
                     <img
                         class="hidden w-16 h-16 X"
@@ -84,7 +86,7 @@
                         alt="" />
                 </div>
                 <div
-                    class="duration-300 bg-black bg-opacity-0 border border-r-0 border-black hover:cursor-pointer hover:opacity-60 cell-container"
+                    class="hover:cursor-pointer duration-300 bg-black bg-opacity-0 border border-r-0 border-black cell-container"
                     data-cell="5">
                     <img
                         class="hidden w-16 h-16 X"
@@ -96,7 +98,7 @@
                         alt="" />
                 </div>
                 <div
-                    class="duration-300 bg-black bg-opacity-0 border border-b-0 border-l-0 border-black hover:cursor-pointer hover:opacity-60 cell-container"
+                    class="hover:cursor-pointer duration-300 bg-black bg-opacity-0 border border-b-0 border-l-0 border-black cell-container"
                     data-cell="6">
                     <img
                         class="hidden w-16 h-16 X"
@@ -108,7 +110,7 @@
                         alt="" />
                 </div>
                 <div
-                    class="duration-300 bg-black bg-opacity-0 border border-b-0 border-black hover:cursor-pointer hover:opacity-60 cell-container"
+                    class="hover:cursor-pointer duration-300 bg-black bg-opacity-0 border border-b-0 border-black cell-container"
                     data-cell="7">
                     <img
                         class="hidden w-16 h-16 X"
@@ -120,7 +122,7 @@
                         alt="" />
                 </div>
                 <div
-                    class="duration-300 bg-black bg-opacity-0 border border-b-0 border-r-0 border-black hover:cursor-pointer hover:opacity-60 cell-container"
+                    class="hover:cursor-pointer duration-300 bg-black bg-opacity-0 border border-b-0 border-r-0 border-black cell-container"
                     data-cell="8">
                     <img
                         class="hidden w-16 h-16 X"
@@ -139,9 +141,9 @@
             class="fixed top-0 bottom-0 left-0 right-0 flex-col items-center justify-center hidden text-4xl bg-slate-500">
             <div
                 id="winningMsg"
-                class="flex flex-col items-center justify-center p-10 text-2xl tracking-widest text-center text-gray-200 uppercase md:text-4xl">
-                <p>Lets play a game of Tic-Tac-Toe!</p>
-                <p class=""></p>
+                class="flex flex-col items-center justify-center leading-loose p-10 text-2xl tracking-widest text-center text-gray-200 uppercase md:text-4xl md:leading-loose">
+                <p class="p-6">Lets play a game of Tic-Tac-Toe!</p>
+                <div class="border-t border-red-300 w-full"></div>
             </div>
             <button
                 id="restartBtn"
