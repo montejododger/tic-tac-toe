@@ -18,6 +18,7 @@ const images = document.querySelectorAll(`img`);
 const startingEle = document.getElementById('starter');
 const winningMessageEle = document.getElementById('winningMsg');
 const restartButton = document.getElementById('restartBtn');
+const playersTurn = document.getElementById('turn');
 
 let gameActive = false;
 let circleTurn;
@@ -48,6 +49,7 @@ function startGame() {
     resetGameState();
     resetGameBoard();
 
+    playersTurn.innerText = `${currentTurn}'s`;
     startingEle.classList.toggle('flex');
     startingEle.classList.toggle('hidden');
 }
@@ -105,6 +107,7 @@ function handleClick(e) {
         endGame(drawFlag);
     } else {
         switchTurns();
+        playersTurn.innerText = `${currentTurn}'s`;
     }
 }
 
